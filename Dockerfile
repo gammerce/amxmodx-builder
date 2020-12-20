@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-ARG BASE_URL
+ARG BUILD_URL
 
 RUN dpkg --add-architecture i386
 RUN apt-get update && apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386 wget vim unzip inotify-tools
@@ -14,7 +14,7 @@ COPY ./compile.sh /home/builder/compile.sh
 COPY ./watch.sh /home/builder/watch.sh
 
 WORKDIR /home/builder
-RUN wget -O build.tar.gz "${BASE_URL}"
+RUN wget -O build.tar.gz "${BUILD_URL}"
 RUN tar -xzf build.tar.gz
 
 WORKDIR /home/builder/addons/amxmodx/scripting

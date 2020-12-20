@@ -10,13 +10,13 @@ jobs:
       matrix:
         include:
           - amxx_version: "1.8.2"
-            base_url: "https://www.amxmodx.org/release/amxmodx-1.8.2-base-linux.tar.gz"
+            build_url: "https://www.amxmodx.org/release/amxmodx-1.8.2-base-linux.tar.gz"
           - amxx_version: "1.8.3-git5201"
-            base_url: "https://www.amxmodx.org/amxxdrop/1.8/amxmodx-1.8.3-dev-git5201-base-linux.tar.gz"
+            build_url: "https://www.amxmodx.org/amxxdrop/1.8/amxmodx-1.8.3-dev-git5201-base-linux.tar.gz"
           - amxx_version: "1.9.0-git5241"
-            base_url: "https://www.amxmodx.org/amxxdrop/1.9/amxmodx-1.9.0-git5241-base-linux.tar.gz"
+            build_url: "https://www.amxmodx.org/amxxdrop/1.9/amxmodx-1.9.0-git5241-base-linux.tar.gz"
           - amxx_version: "1.10.0-git5392"
-            base_url: "https://www.amxmodx.org/amxxdrop/1.10/amxmodx-1.10.0-git5392-base-linux.tar.gz"
+            build_url: "https://www.amxmodx.org/amxxdrop/1.10/amxmodx-1.10.0-git5392-base-linux.tar.gz"
     steps:
       - 
         name: Check out the repo
@@ -40,4 +40,4 @@ jobs:
           push: true
           tags: budziam/amxx-builder:${{ matrix.amxx_version }}
           build-args: |
-            BASE_URL=${{ matrix.base_url }}
+            BUILD_URL=${{ matrix.build_url }}
